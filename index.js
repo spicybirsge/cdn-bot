@@ -1,4 +1,11 @@
-require('dotenv').config();
+// require('dotenv').config();
+const express = require('express')
+const app = express()
+app.get('/', async (req, res) => {
+  return res.sendStatus(200)
+})
+
+app.listen(3000)
 const { Client, Collection, MessageAttachment } = require("discord.js")
 const fetch = require('node-fetch');
 const FormData = require('form-data');     
@@ -36,12 +43,16 @@ image_url = message.attachments.first().url
     } else {
         image_url = message.content
     }
+      
 
 try {
     message.channel.send('Uploading to cdn...')
 form.append('image', request(image_url))
+  
 
-await fetch('https://cdn.shaheerahamed.me/upload', {method: 'POST', body: form})
+
+
+await fetch(`https://cdn.shaheerahamed.me/upload?key=${process.env.AUTH_KEY}`, {method: 'POST', body: form})
 .then(res => res.json()).then(async(data) => {
    message.channel.send(`Uploaded to CDN: ${data.url}`)
 })
