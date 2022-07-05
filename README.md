@@ -1,6 +1,6 @@
-### cdn bot
+## cdn bot
 
-A bot that will upload your images or videos to my cdn.
+- A bot that will upload your images or videos to my cdn.
 
 ### Usage
 
