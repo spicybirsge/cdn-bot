@@ -57,8 +57,9 @@ await fetch(`https://cdn.shaheerahamed.me/upload?key=${process.env.AUTH_KEY}`, {
    message.channel.send(`Uploaded to CDN: ${data.url}`)
 })
 } catch(e) {
+  
     console.log(e)
-    return;
+    return message.channel.send(`${e}`)
 }
 } 
 })
