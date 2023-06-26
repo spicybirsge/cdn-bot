@@ -52,9 +52,9 @@ form.append('image', request(image_url))
 
 
 
-await fetch(`https://cdn.shaheerahamed.me/upload?key=${process.env.AUTH_KEY}`, {method: 'POST', body: form})
+await fetch(`https://shaheerahamedcdn.cyclic.app/upload?key=${process.env.AUTH_KEY}`, {method: 'POST', body: form})
 .then(res => res.json()).then(async(data) => {
-   message.channel.send(`Uploaded to CDN: ${data.url}`)
+   message.channel.send(`Uploaded to CDN: https://shaheerahamedcdn.cyclic.app/${data.url}`)
 })
 } catch(e) {
   
